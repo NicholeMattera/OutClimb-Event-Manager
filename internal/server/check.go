@@ -21,7 +21,7 @@ func NewCheckHandler(mux *http.ServeMux, db *sql.DB) {
 
 func (ch *CheckHandler) Check() http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		latestEvent, _ := model.GetEvent(ch.db, "20240727-outdoor-climbing-he-mni-can-barn-bluff")
+		latestEvent, _ := model.GetEvent(ch.db, "20240810-outdoor-climbing-sugar-loaf-bluff")
 
 		if latestEvent.NumberOfRegistrations < 12 {
 			http.Redirect(w, r, "https://outclimb.gay/event-registration-form", http.StatusTemporaryRedirect)
