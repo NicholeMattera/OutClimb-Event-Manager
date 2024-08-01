@@ -49,7 +49,7 @@ func (ch *CheckHandler) CheckCamp() http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		latestEvent, _ := model.GetEvent(ch.db, "2024-camp")
 
-		if latestEvent.NumberOfRegistrations < 12 {
+		if latestEvent.NumberOfRegistrations < 36 {
 			http.Redirect(w, r, "https://outclimb.gay/2024-camp-registration-form", http.StatusTemporaryRedirect)
 		} else {
 			http.Redirect(w, r, "https://outclimb.gay/event-registration-filled", http.StatusTemporaryRedirect)
